@@ -1,6 +1,10 @@
 # Methods 
 The following article provides description on my implementation of Dijkstra's algorithm, SVM
 
+## Terminology
+Staff Height: $L$ Number of pixels between staff lines
+Pixel Values: $p_i$ Gray scale color of a pixel
+
 ## Dijkstra's algorithm
 
 Readers are asked to briefly overview the inner workings of Dijkstra's algorthim. 
@@ -37,11 +41,30 @@ So, using the example above, the edge weights would be:
 * C-S: 2
 and clearly we should not go backwards... And with this simple implemenatation, we get something like this:
 
-<p align="left">
-    <img src = "/images/dvorak_celelo-02.jpg" width = '250'>
+<p align="center">
+    <img src = "/images/dvorak_2.jpg" width = '250' margin = '50px'>
     <img src = "/images/staff_lines_dvorak_2_naive.jpg" width = '250'>
 </p>
 
-and that is disgusting! We do see some sort of structure/resemblance of least paths concentrating on the staff lines to traverse from left side of the image to the right side. In the end, we want to predict if truly each black pixels represented above is a staff line by SVM, and we desire to limit the number of pixels to be predicted as prediction stage is the bottleneck process in this first step. 
+That is disgusting! We do see some sort of structure/resemblance of least paths concentrating on the staff lines to traverse from left side of the image to the right side. In the end, we want to predict if truly each black pixels represented above is a staff line by SVM, and we desire to limit the number of pixels to be predicted as prediction stage is the bottleneck process in this first step. 
 
-If 
+How do we fix this? There are 3 main steps we will take:
+
+1) Filter out paths that crosses white pixels too often (i.e more than 25% of the total number of pixel in the path)
+2) Remove the paths that are close to the left/right edge. Staff lines only start around 4-5 staff height away from the edge
+3) Calculate the Pearson correlation coefficient of the paths and sift out coefficients that are too high (i.e 0 means no correlation, i.e, strictly horizontal)
+
+### Step 1
+Pretty self-explanatory. Staff lines are strictly made up of dark pixels and since the paths will inevitably traverse white pixels on the left/right most edges of the sheet music, I chose proportion of black pixels of the path to be 75% (or one can start with step 2 and increase the proportion to around 90%)
+
+### Step 2
+Again, self-explanatory. Staff lines roughly start with 4-5 staff height (~$5L$) away from the left/right edge of a sheet music. So, we trimm this section of the path out
+
+### Step 3
+This step did not improve greatly result. But, this is to limit staff lines that are too steep. Staff lines are horizontal in nature
+
+Ta da....Would you look at that!
+
+<p align="center">
+    <img src = "/images/staff_lines_dvorak_2_final.jpg" width = '250'>
+</p>
