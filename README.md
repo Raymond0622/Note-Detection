@@ -14,5 +14,5 @@ The full OMR pipeline is a 5-step procedure outline as follows:
 5) Use SVM again to identify note heads on each music element
 
 # Citations
-1) J. dos Santos Cardoso, A. Capela, A. Rebelo, C. Guedes and J. Pinto da Costa, "Staff Detection with Stable Paths," in IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 31, no. 6, pp. 1134-1139, June 2009, doi: 10.1109/TPAMI.2009.34.
+1) J. dos Santos Cardoso, A. Capela, A. Rebelo, C. Guedes and J. Pinto da Costa, "Staff Detection with Stable Paths," in IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 31, no. 6, pp. 1134-1139, June 2009, doi: 10.1109/TPAMI.2009.34
 2) Calvo-Zaragoza, J., Micó, L. & Oncina, J. Music staff removal with supervised pixel classification. IJDAR 19, 211–219 (2016). https://doi.org/10.1007/s10032-016-0266-2
