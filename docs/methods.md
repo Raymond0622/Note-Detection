@@ -36,3 +36,12 @@ So, using the example above, the edge weights would be:
 * C-SE: $2\sqrt{2}$
 * C-S: 2
 and clearly we should not go backwards... And with this simple implemenatation, we get something like this:
+
+<p align="left">
+    <img src = "/images/dvorak_celelo-02.jpg" width = '250'>
+    <img src = "/images/staff_lines_dvorak_2_naive.jpg" width = '250'>
+</p>
+
+and that is disgusting! We do see some sort of structure/resemblance of least paths concentrating on the staff lines to traverse from left side of the image to the right side. In the end, we want to predict if truly each black pixels represented above is a staff line by SVM, and we desire to limit the number of pixels to be predicted as prediction stage is the bottleneck process in this first step. 
+
+If 
