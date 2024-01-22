@@ -68,3 +68,10 @@ Ta da....Would you look at that!
 <p align="center">
     <img src = "/images/staff_lines_dvorak_2_final.jpg" width = '250'>
 </p>
+
+# Support Vector Machine
+
+Radial based function was used as the kernel function which takes in the input (pixel values of the Canny Edge tranformed images, stacked row major wise) into a specific form to be analyzed. There are various Edge detection CNNs algorthims out there (i.e the simple horizontal, vertical line detection as we only desire staff lines and they are inherently horizontal). But, Canny worked the best in this scenario. 
+
+So for each staff line pixel in the least path, roughly 11x11 pixel was extracted from the Canny image (with the center pixel being the least path pixel) and trained. Yes, I created my own dataset and I believe it was roughly around 5,000 images that I had to label.... In the end, the method worked beautifuly as it should...
+
