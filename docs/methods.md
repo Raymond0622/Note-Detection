@@ -39,7 +39,15 @@ So, using the example above, the edge weights would be:
 * C-E: 2
 * C-SE: $2\sqrt{2}$
 * C-S: 2
-and clearly we should not go backwards... And with this simple implemenatation, we get something like this:
+and clearly we should not go backwards... And with this simple implemenatation... wait the implementation was NOT simple... let's discuss before showcasing the result
+
+### Implementation of Dijkstra's algorithm:
+
+There are two general approach I took: Naive approach, and the more smart data structure approach. Dijkstra's algorithm is a greedy algorthim in that for each loop or decision to pick the next vertex to visit, we must look for the minimum path to the vertices that have not been visited yet. Minimum is a huge problem. We have to look through all the vertices and check for the minimum distance. This is the bottlneck operation in this algorthim. One can naively loop through all vertices and find the minimum which was my first approach and this operation took around 4-5 minutes (on Python) for a single sheet music of size (1600 x 2150 pixel). So, how do we fix this? There are two things we need to consider: Has a vertex been visited? What's the minimum path of unvisited vertices?
+
+Both issues were fixed by using minimum heap. A heap is a a complete binary tree but for the sake of this project. The completeness is the quite necessary (well.. when I implemented it). A minimum heap is a binary tree such that the children of any parent node is always less than or equal to its parent node. So, you can see that the most top-level node will always be the smallest; hence the minimum across all nodes. So, if we allow each node to be a vertex and order the heap by its path length, then we can easily get the minimum vertex.
+
+When we call the minimum value, we will call two functions: get the minimum, and sink down. The first operation is to remove the node since we won't be visting the vertex again. The latter operation is the fill in the void that's been created from removing the top node. So, we move the very last node of the heap (i.e the most right node of the heap, see the picture below for more detail) and move it up. And obviously, this is not a min heap since the top node is now potentially the greatest path length vertex out of all vertices. So, we must perform the sink down operation which is switching node position based on its path length.
 
 <p align="center">
     <img src = "/images/dvorak_2.jpg" width = '250' margin = '50px'>
