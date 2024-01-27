@@ -12,7 +12,7 @@ Readers are asked to briefly overview the inner workings of Dijkstra's algorthim
 We treat each pixel of an image (N x M pixel) as vertices and the edge value connecting adjacent pixels defined by the pixel value of the mentioned adjacent pixels. We always start from the left (0th column) of the image and the final pixel destination would be the same row number on the right most side of the image (Mth-1) image.
 
 <p align="center">
-    <img src = "/images/dj_pixel.png" width = '250'>
+    <img src = "/images/dj_pixel.png" width = '400'>
 </p>
 
 The image above shows an example run of the Dijkstra's algorthim. Each square above represent a pixel of an image which also represent a vertex of a "graph". Edges exists between only adjacent nodes. How are exactly the edge between adjcent nodes computed? The edge is determined by the edge function below: $w(p_1, p_2)$ inputs are the pixel values (either 0 or 255) and spits out $2$ if either pixel value is $0$, or else returns $6$. And the $e(l_1, l_2)$ is the final edge function that compute the edge between any two pixels which multiplies $w$ by $3$ if the Euclidean distance between the two pixel is greater than $1$ (i.e diagonally adjacent pixels). I found that these parameters worked best and produced very great results. The rationale behind the latter function is somewhat apparent: staff lines are horizontally, thus we penalize if we traverse vertically. However, the weight function needs some addtional explanation: It's clear that if the two pixels are black, then less penalty should be incurred. However, 
@@ -50,8 +50,8 @@ Both issues were fixed by using minimum heap. A heap is a a complete binary tree
 When we call the minimum value, we will call two functions: get the minimum, and sink down. The first operation is to remove the node since we won't be visting the vertex again. The latter operation is the fill in the void that's been created from removing the top node. So, we move the very last node of the heap (i.e the most right node of the heap, see the picture below for more detail) and move it up. And obviously, this is not a min heap since the top node is now potentially the greatest path length vertex out of all vertices. So, we must perform the sink down operation which is switching node position based on its path length.
 
 <p align="center">
-    <img src = "/images/dvorak_2.jpg" width = '250' margin = '50px'>
-    <img src = "/images/staff_lines_dvorak_2_naive.jpg" width = '250'>
+    <img src = "/images/dvorak_2.jpg" width = '400' margin = '50px'>
+    <img src = "/images/staff_lines_dvorak_2_naive.jpg" width = '400'>
 </p>
 
 That is disgusting! We do see some sort of structure/resemblance of least paths concentrating on the staff lines to traverse from left side of the image to the right side. In the end, we want to predict if truly each black pixels represented above is a staff line by SVM, and we desire to limit the number of pixels to be predicted as prediction stage is the bottleneck process in this first step. 
@@ -74,7 +74,7 @@ This step did not improve greatly result. But, this is to limit staff lines that
 Ta da....Would you look at that!
 
 <p align="center">
-    <img src = "/images/staff_lines_dvorak_2_final.jpg" width = '250'>
+    <img src = "/images/staff_lines_dvorak_2_final.jpg" width = '400'>
 </p>
 
 # Support Vector Machine
@@ -86,8 +86,8 @@ So for each staff line pixel in the least path, roughly 11x11 pixel was extracte
 And the results are:
 
 <p align="center">
-    <img src = "/images/example_pre.jpg" width = '250'>
-    <img src = "/images/first_step_example.jpg" width = '250'>
+    <img src = "/images/example_pre.jpg" width = '400'>
+    <img src = "/images/first_step_example.jpg" width = '400'>
 </p>
 
 Now, onto the next step: Create music elements
