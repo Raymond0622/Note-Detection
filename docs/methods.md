@@ -103,8 +103,9 @@ clustering = DBSCAN(eps=2, min_samples=1).fit(X)
 where the distance is defined to be the Euclidean distance between pixels. So we just check within a pixel square radius (since diagonal pixels are of radius 1.41, see first picture above). And if a single element is black, then we include it as a core sample! So, what are the results?
 
 
-
-
+<p align="center">
+    <img src = "DBSCAN.jpg" width = '400'>
+</p>
 
 
 
