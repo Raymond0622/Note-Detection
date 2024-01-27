@@ -104,7 +104,7 @@ where the distance is defined to be the Euclidean distance between pixels. So we
 
 
 <p align="center">
-    <img src = "DBSCAN.jpg" width = '400'>
+    <img src = "/images/DBSCAN.png" width = '400'>
 </p>
 
 
