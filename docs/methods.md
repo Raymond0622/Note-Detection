@@ -86,7 +86,7 @@ So for each staff line pixel in the least path, roughly 11x11 pixel was extracte
 And the results are:
 
 <p align="center">
-    <img src = "/images/0010.jpg" width = '250'>
+    <img src = "/images/example_pre.jpg" width = '250'>
     <img src = "/images/first_step_example.jpg" width = '250'>
 </p>
 
