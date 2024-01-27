@@ -83,3 +83,11 @@ Radial based function was used as the kernel function which takes in the input (
 
 So for each staff line pixel in the least path, roughly 11x11 pixel was extracted from the Canny image (with the center pixel being the least path pixel) and trained. Yes, I created my own dataset and I believe it was roughly around 5,000 images that I had to label.... In the end, the method worked beautifuly as it should...
 
+And the results are:
+
+<p align="center">
+    <img src = "/images/0010.jpg" width = '250'>
+    <img src = "/images/first_step_example.jpg" width = '250'>
+</p>
+
+Now, onto the next step: Create music elements
