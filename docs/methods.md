@@ -90,4 +90,26 @@ And the results are:
     <img src = "/images/first_step_example.jpg" width = '400'>
 </p>
 
-Now, onto the next step: Create music elements
+Now, onto the next step: Create music elements. So why did we even bother removing the staff lines? It's to create music elements that are "islands" of black pixels. DBSCAN will help us identify different islands depending on number of black pixels in the vicinity of a candidate pixel. I suggest reading up on how DBSCAN works why this was used. In short, DBSCAN is great at detecting clusters of arbitrary shape and since music elements are of random shape (i.e clefs, note heads, rest symbols, accidentals, etc), DBSCAN is best. 
+
+We need "islands" to narrows our search area of note heads. If we naively created data sets for SVM to go through every pixel of an image, this would be highly inefficient. So, we partition the image into music elements which MIGHT have note heads. So, we are moving large empty white spaces that we surely know won't have any note heads! So, we first needed to get rid of staff lines since staff lines connect (via path of black pixels) various music elements together. Staff lines could have been kept if we used a different (eps, min) DBSCAN parameter, but this was not explored. Perhaps, something to look into the future.
+
+Anyhow, using DBSCAN with the following parameters:
+
+```python
+clustering = DBSCAN(eps=2, min_samples=1).fit(X)
+```
+
+where the distance is defined to be the Euclidean distance between pixels. So we just check within a pixel square radius (since diagonal pixels are of radius 1.41, see first picture above). And if a single element is black, then we include it as a core sample! So, what are the results?
+
+
+
+
+
+
+
+
+
+
+
+
