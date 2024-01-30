@@ -107,7 +107,11 @@ where the distance is defined to be the Euclidean distance between pixels. So we
     <img src = "/images/DBSCAN.png" width = '400'>
 </p>
 
-Very pretty! So, now what's next? We box around each music element and create bounding boxes to be fed into the notehead SVM. After such:
+Very pretty! So, now what's next? We box around each music element and create bounding boxes to be fed into the notehead SVM by taking the min/max pixels of each cluster. After such...
+
+<p align="center">
+    <img src = "/images/music_parts_box.png" width = '400'>
+</p>
 
 
 
