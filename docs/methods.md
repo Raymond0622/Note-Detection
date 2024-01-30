@@ -113,6 +113,11 @@ Very pretty! So, now what's next? We box around each music element and create bo
     <img src = "/images/music_parts_box.jpg" width = '400'>
 </p>
 
+And finally, apply SVM to detect note heads (I belive it's a 14x14 pixel that is fed into the SVM), and the results are shown below:
+
+<p align="center">
+    <img src = "/examples/Chopin Nocturne Op.48/FINAL9.jpg" width = '400'>
+</p>
 
 
 
