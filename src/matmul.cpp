@@ -20,7 +20,7 @@ void matmul_naive(const int n, double* C, double* A, double* B){
   }
 }
 
-#define BLOCK_SIZE 32
+#define BLOCK_SIZE 64
 
 void matmul_blocked(const int n, double* C, double* A, double* B){
   for (int i = 0; i < n; i += BLOCK_SIZE){
